@@ -33,6 +33,9 @@
             h2 {
                 font-weight: 400;
             }
+            h3 {
+                font-weight: 400;
+            }
             .special {
                 align: center;
                 max-width: 50%;
@@ -208,28 +211,26 @@
         </center>
 
         <center>
-            <p>Although reinforcement learning methods offer a powerful framework for
-              automatic skill acquisition, for practical learning-based control problems in domains
-              such as robotics, imitation learning often provides a more convenient and accessible
-              alternative. In particular, an interactive imitation learning method such as DAgger,
-              which queries an expert to intervene online to collect correction data for addressing
-              the distributional shift challenges that afflict naïve behavioral cloning, can enjoy
-            good performance both in theory and practice without requiring manually specified
-            reward functions and other components of full reinforcement learning methods. In
-            this paper, we explore how off-policy reinforcement learning can enable improved
-            performance under assumptions that are similar but potentially even more practical
-            than those of interactive imitation learning. Our proposed method uses
-            reinforcement learning with rewards derived automatically from user intervention signals.
-            This relaxes the requirement that user interventions in interactive imitation learning
-            should be optimal, and enables the algorithm to learn behaviors that improve over
-            the human expert, without requiring significantly stronger assumptions that those
-            commonly made in interactive imitation learning algorithms. We analyze the regret
-            of our method and its imitation learning counterpart under different intervention
-            modes. We show that, under even weaker assumptions on the optimality of
-            intervention actions, our method attains better performance bounds in theory. We
-            then evaluate our method on challenging high-dimensional continuous control
-            benchmarks. The results show that it outperforms DAgger-like approaches across
-            the different tasks, especially when the intervening experts are suboptimal.
+            <p>Although reinforcement learning methods offer a powerful framework for automatic skill acquisition, for practical learning-based control problems in domains
+such as robotics, imitation learning often provides a more convenient and accessible
+alternative. In particular, an interactive imitation learning method such as DAgger,
+which queries a near-optimal expert to intervene online to collect correction data for
+addressing the distributional shift challenges that afflict naïve behavioral cloning,
+can enjoy good performance both in theory and practice without requiring manually
+specified reward functions and other components of full reinforcement learning
+methods. In this paper, we explore how off-policy reinforcement learning can enable improved performance under assumptions that are similar but potentially even
+more practical than those of interactive imitation learning. Our proposed method
+uses reinforcement learning with user intervention signals themselves as rewards.
+This relaxes the assumption that intervening experts in interactive imitation learning
+should be near-optimal and enables the algorithm to learn behaviors that improve
+over the potential suboptimal human expert. We also provide a unified framework
+to analyze our RL method and DAgger; for which we present the asymptotic analysis of the suboptimal gap for both methods as well as the non-asymptotic sample
+complexity bound of our method. We then evaluate our method on challenging
+high-dimensional continuous control simulation benchmarks as well as real-world
+robotic vision-based manipulation tasks. The results show that it strongly outperforms DAgger-like approaches across the different tasks, especially when the
+intervening experts are suboptimal. Additional ablations also empirically verify the
+proposed theoretical justification that the performance of our method is associated
+with the choice of intervention model and suboptimality of the expert.
             </p>
             <br>
         </center>
@@ -237,15 +238,10 @@
         <!-- <center>
             <h2>Summary
             </h2>
-        </center>
+        </center> -->
 
-        <ul>
-          <li>Train a conditional VQ-VAE to learn a latent representation of the actions conditioned on the state</li>
-          <li>Perform offline RL with the VQ-VAE discrete codes as actions</li>
-          <li>During inference, select the best discrete action using the policy and transform into continuous with the trained decoder</li>
-        </ul>
 
-        <div wdith="50%">
+        <!-- <div wdith="50%">
         <img src="saq_static.jpeg">
       </div> -->
 
@@ -256,6 +252,13 @@
           </h2>
       </center>
 
+      <ul>
+        <li>Run online reinforcement learning training</li>
+        <li>If the policy performs undesirable behaviors, provide feedback in the form of interventions</li>
+        <li>Label the state, action, and next state tuple right before intervention with -1 reward</li>
+      </ul>
+
+
 
         <div wdith="50%">
         <img src="rlif.gif">
@@ -264,17 +267,30 @@
       <br>
 
       <center>
-          <h2>Robot Experiments
+          <h2>Results
           </h2>
+      </center>
+
+      <center>
+          <h3>Robot Experiments
+          </h3>
       </center>
 
 
         <center>
         <div>
-          <iframe src="https://drive.google.com/file/d/1H_4jyeROLwm9rQkRtGYw9hg6S2MSvnZi/preview" width="840" height="580" allow="autoplay"></iframe>
-      </div>
+<iframe src="https://drive.google.com/file/d/1Fd6GwscYchmP1Jc4m8fUuudrl23IuRGv/preview" width="840" height="580" allow="autoplay"></iframe>      </div>
+    </center>
+    <br>
+
+    <center>
+        <h3>Simulation
+        </h3>
     </center>
 
+    <div wdith="40%">
+    <img src="rlif_res.png">
+  </div>
 
 
     </body>
