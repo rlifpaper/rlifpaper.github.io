@@ -142,6 +142,10 @@
             width: 150px;
             margin: 0px;
           }
+          .animation {
+            margin-top: -20px;
+            margin-bottom: -8px;
+          }
           img { width: 100%; height: auto; }
           a{
             color: #3273dc;
@@ -152,11 +156,24 @@
     text-decoration-style: initial;
 
           }
+          .primary{
+            MARGIN-LEFT: auto;
+            MARGIN-RIGHT: auto;
+            TEXT-ALIGN: left;
+            max-width: 1000px;
+            font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+          }
+          /* h3 {
+            font-weight: bold;
+          } */
         </style>
         <title>RLIF: Interactive Imitation Learning as Reinforcement Learning
         </title>
     </head>
     <body>
+      <div class='primary'>
         <center>
             <h1>RLIF: Interactive Imitation Learning as Reinforcement Learning
             </h1>
@@ -206,34 +223,18 @@
 
 <br>
         <center>
-            <h2>Abstract
+            <h2>Video
             </h2>
         </center>
 
-        <center>
-            <p>Although reinforcement learning methods offer a powerful framework for automatic skill acquisition, for practical learning-based control problems in domains
-such as robotics, imitation learning often provides a more convenient and accessible
-alternative. In particular, an interactive imitation learning method such as DAgger,
-which queries a near-optimal expert to intervene online to collect correction data for
-addressing the distributional shift challenges that afflict naïve behavioral cloning,
-can enjoy good performance both in theory and practice without requiring manually
-specified reward functions and other components of full reinforcement learning
-methods. In this paper, we explore how off-policy reinforcement learning can enable improved performance under assumptions that are similar but potentially even
-more practical than those of interactive imitation learning. Our proposed method
-uses reinforcement learning with user intervention signals themselves as rewards.
-This relaxes the assumption that intervening experts in interactive imitation learning
-should be near-optimal and enables the algorithm to learn behaviors that improve
-over the potential suboptimal human expert. We also provide a unified framework
-to analyze our RL method and DAgger; for which we present the asymptotic analysis of the suboptimal gap for both methods as well as the non-asymptotic sample
-complexity bound of our method. We then evaluate our method on challenging
-high-dimensional continuous control simulation benchmarks as well as real-world
-robotic vision-based manipulation tasks. The results show that it strongly outperforms DAgger-like approaches across the different tasks, especially when the
-intervening experts are suboptimal. Additional ablations also empirically verify the
-proposed theoretical justification that the performance of our method is associated
-with the choice of intervention model and suboptimality of the expert.
-            </p>
-            <br>
-        </center>
+
+          <center>
+          <div>
+  <iframe src="https://drive.google.com/file/d/1Fd6GwscYchmP1Jc4m8fUuudrl23IuRGv/preview" width="840" height="580" allow="autoplay"></iframe>      </div>
+      </center>
+
+        <br>
+        <hr>
 
         <!-- <center>
             <h2>Summary
@@ -253,34 +254,26 @@ with the choice of intervention model and suboptimality of the expert.
       </center>
 
       <ul>
-        <li>Run online reinforcement learning training</li>
-        <li>If the policy performs undesirable behaviors, provide feedback in the form of interventions</li>
-        <li>Label the state, action, and next state tuple right before intervention with -1 reward</li>
+        <li>Run online reinforcement learning for a given task</li>
+        <li>Provide intervention feedback when the policy performs undesirable actions and label the state, action, and next state tuple right before intervention with a -1 reward</li>
+        <li>Repeatedly follow the previous two steps until the policy performs the desired behavior</li>
       </ul>
 
 
 
-        <div wdith="50%">
-        <img src="rlif.gif">
+        <div class="animation" wdith="50%">
+        <img src="rlif_animation.gif">
       </div>
 
-      <br>
+      <hr>
+
 
       <center>
           <h2>Results
           </h2>
       </center>
 
-      <center>
-          <h3>Robot Experiments
-          </h3>
-      </center>
 
-
-        <center>
-        <div>
-<iframe src="https://drive.google.com/file/d/1Fd6GwscYchmP1Jc4m8fUuudrl23IuRGv/preview" width="840" height="580" allow="autoplay"></iframe>      </div>
-    </center>
     <br>
 
     <center>
@@ -291,6 +284,25 @@ with the choice of intervention model and suboptimality of the expert.
     <div wdith="40%">
     <img src="rlif_res.png">
   </div>
+</div>
+<br>
+<center>
+    <h3>Robot Experiment
+    </h3>
+</center>
+
+<div width="40%">
+<img width="40%" src="rlif_robot.png">
+</div>
+
+<br>
+<center>
+    <h3>Theoretical Bound
+    </h3>
+</center>
+<div width="40%">
+<img width="40%" src="6.3.png">
+</div>
 
 
     </body>
