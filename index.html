@@ -147,7 +147,11 @@
             margin: auto
           }
           .robo {
-            width: 1100px;
+            width: 900px;
+            margin: auto
+          }
+          .sim {
+            width: 1200px;
             margin: auto
           }
           .animation {
@@ -247,13 +251,13 @@
 <hr>
 
 <center>
-    <h2>Method
+    <h2>Summary
     </h2>
 </center>
 
 <ul>
   <li>Run online reinforcement learning for a given task</li>
-  <li>Provide intervention feedback when the policy performs undesirable actions and label the state, action, and next state tuple right before intervention with a -1 reward</li>
+  <li>Provide intervention feedback when the policy performs undesirable actions</li>
   <li>Repeatedly follow the previous two steps until the policy performs the desired behavior</li>
 </ul>
 
@@ -283,8 +287,28 @@
         <hr>
 
         <center>
-            <h2>Pseudocode
+            <h2>Method
             </h2>
+        </center>
+
+        <center>
+            <u><h3>Description
+            </h3></u>
+        </center>
+
+        <ul>
+          <li>Choose a suitable online reinforcement learning algorithm that can incorporate prior data (RLPD is used in our paper experiments)</li>
+          <li>Warm start the replay buffer with expert demonstrations</li>
+          <li>Start online training for the reinforcement learning method and provide interventions when the policy acts undesirably</li>
+          <li>Label the state and action pair immediately before intervention with -1 reward and rest with 0 reward and append samples to the replay buffer</li>
+          <li>Continue training until the policy converges to a desired behavior</li>
+        </ul>
+
+        <br>
+
+        <center>
+            <u><h3>Pesudocode
+            </h3></u>
         </center>
 
         <div class="code" wdith="40%">
@@ -308,7 +332,7 @@
         </h3></u>
     </center> -->
 
-    <div wdith="40%">
+    <div class="sim" wdith="40%">
     <img src="rlif_res.png">
   </div>
 </div>
