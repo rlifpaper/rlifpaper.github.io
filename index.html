@@ -167,6 +167,10 @@
           .gif {
             margin-bottom: -5px;
           }
+          .code {
+            width: 30em;
+            margin: auto;
+          }
           .primary{
             MARGIN-LEFT: auto;
             MARGIN-RIGHT: auto;
@@ -190,7 +194,7 @@
             </h1>
         </center>
 
-<!--         <div class="authors">
+        <!-- <div class="authors">
           <div class="first">
               <a style="text-decoration:none" href="https://people.eecs.berkeley.edu/~jianlanluo/">Jianlan Luo*</a></div>
           <div class="second">
@@ -204,9 +208,9 @@
           <div class="sixth">
               <a style="text-decoration:none" href="https://cs.berkeley.edu/~svlevine">Sergey Levine</a>
           </div>
-      </div>
+      </div> -->
 
- -->
+
           <div class="publication-links">
 
               <!-- Code Link. -->
@@ -230,6 +234,40 @@
           </div>
 
 <br>
+
+<center>
+    <h2>Abstract
+    </h2>
+</center>
+
+<div><p>Although reinforcement learning methods offer a powerful framework for auto- matic skill acquisition, for practical learning-based control problems in domains such as robotics, imitation learning often provides a more convenient and accessible alternative. In particular, an interactive imitation learning method such as DAgger, which queries a near-optimal expert to intervene online to collect correction data for addressing the distributional shift challenges that afflict naïve behavioral cloning, can enjoy good performance both in theory and practice without requiring manually specified reward functions and other components of full reinforcement learning methods. In this paper, we explore how off-policy reinforcement learning can en- able improved performance under assumptions that are similar but potentially even more practical than those of interactive imitation learning. Our proposed method uses reinforcement learning with user intervention signals themselves as rewards. This relaxes the assumption that intervening experts in interactive imitation learning should be near-optimal and enables the algorithm to learn behaviors that improve over the potential suboptimal human expert. We also provide a unified framework to analyze our RL method and DAgger; for which we present the asymptotic analy- sis of the suboptimal gap for both methods as well as the non-asymptotic sample complexity bound of our method. We then evaluate our method on challenging high-dimensional continuous control simulation benchmarks as well as real-world robotic vision-based manipulation tasks. The results show that it strongly out- performs DAgger-like approaches across the different tasks, especially when the intervening experts are suboptimal. Additional ablations also empirically verify the proposed theoretical justification that the performance of our method is associated with the choice of intervention model and suboptimality of the expert.
+</p></div>
+
+<br>
+<hr>
+
+<center>
+    <h2>Method
+    </h2>
+</center>
+
+<ul>
+  <li>Run online reinforcement learning for a given task</li>
+  <li>Provide intervention feedback when the policy performs undesirable actions and label the state, action, and next state tuple right before intervention with a -1 reward</li>
+  <li>Repeatedly follow the previous two steps until the policy performs the desired behavior</li>
+</ul>
+
+
+
+  <!-- <div class="animation" wdith="50%">
+  <img src="rlif_animation.gif">
+</div> -->
+<div wdith="40%">
+<img src="rlif_animation.gif">
+</div>
+<hr>
+
+
         <center>
             <h2>Video Presentation
             </h2>
@@ -244,70 +282,69 @@
         <br>
         <hr>
 
-        <!-- <center>
-            <h2>Summary
+        <center>
+            <h2>Pseudocode
             </h2>
-        </center> -->
+        </center>
 
+        <div class="code" wdith="40%">
+        <img src="pseudocode.png">
+      </div>
+    </div>
+    <br>
 
-        <!-- <div wdith="50%">
-        <img src="saq_static.jpeg">
-      </div> -->
-
-      <br>
-
-      <center>
-          <h2>Method
-          </h2>
-      </center>
-
-      <ul>
-        <li>Run online reinforcement learning for a given task</li>
-        <li>Provide intervention feedback when the policy performs undesirable actions and label the state, action, and next state tuple right before intervention with a -1 reward</li>
-        <li>Repeatedly follow the previous two steps until the policy performs the desired behavior</li>
-      </ul>
-
-
-
-        <!-- <div class="animation" wdith="50%">
-        <img src="rlif_animation.gif">
-      </div> -->
-<div class="gif" style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://jumpshare.com/embed/uyQXTT26QREsN7p6iCEf" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-      <hr>
+    <hr>
 
 
       <center>
-          <h2>Results
+          <h2>Simulation Results
           </h2>
       </center>
 
 
 
-    <center>
+    <!-- <center>
         <u><h3>Simulation
         </h3></u>
-    </center>
+    </center> -->
 
     <div wdith="40%">
     <img src="rlif_res.png">
   </div>
 </div>
 <br>
+<hr>
 
 <center>
+    <h2>Robot Experiment
+    </h2>
+</center>
+
+<!-- <center>
     <u><h3>Robot Experiment
     </h3></u>
-</center>
+</center> -->
 
 <div class="robo">
 <img src="rlif_robot.png">
 </div>
 
 <br>
-<center>
+<hr>
+
+
+<!-- <center>
     <u><h3>Main Theoretical Results
     </h3></u>
+</center> -->
+
+
+<center>
+    <h2>Main Theoretical Results
+    </h2>
 </center>
+
+
 <div class="thm">
 <img src="6.3.png">
 </div>
