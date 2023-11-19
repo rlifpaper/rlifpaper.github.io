@@ -244,7 +244,7 @@
     </h2>
 </center>
 
-<div><p>Although reinforcement learning methods offer a powerful framework for auto- matic skill acquisition, for practical learning-based control problems in domains such as robotics, imitation learning often provides a more convenient and accessible alternative. In particular, an interactive imitation learning method such as DAgger, which queries a near-optimal expert to intervene online to collect correction data for addressing the distributional shift challenges that afflict naïve behavioral cloning, can enjoy good performance both in theory and practice without requiring manually specified reward functions and other components of full reinforcement learning methods. In this paper, we explore how off-policy reinforcement learning can en- able improved performance under assumptions that are similar but potentially even more practical than those of interactive imitation learning. Our proposed method uses reinforcement learning with user intervention signals themselves as rewards. This relaxes the assumption that intervening experts in interactive imitation learning should be near-optimal and enables the algorithm to learn behaviors that improve over the potential suboptimal human expert. We also provide a unified framework to analyze our RL method and DAgger; for which we present the asymptotic analy- sis of the suboptimal gap for both methods as well as the non-asymptotic sample complexity bound of our method. We then evaluate our method on challenging high-dimensional continuous control simulation benchmarks as well as real-world robotic vision-based manipulation tasks. The results show that it strongly out- performs DAgger-like approaches across the different tasks, especially when the intervening experts are suboptimal. Additional ablations also empirically verify the proposed theoretical justification that the performance of our method is associated with the choice of intervention model and suboptimality of the expert.
+<div><p>Although reinforcement learning methods offer a powerful framework for automatic skill acquisition, for practical learning-based control problems in domains such as robotics, imitation learning often provides a more convenient and accessible alternative. In particular, an interactive imitation learning method such as DAgger, which queries a near-optimal expert to intervene online to collect correction data for addressing the distributional shift challenges that afflict naïve behavioral cloning, can enjoy good performance both in theory and practice without requiring manually specified reward functions and other components of full reinforcement learning methods. In this paper, we explore how off-policy reinforcement learning can enable improved performance under assumptions that are similar but potentially even more practical than those of interactive imitation learning. Our proposed method uses reinforcement learning with user intervention signals themselves as rewards. This relaxes the assumption that intervening experts in interactive imitation learning should be near-optimal and enables the algorithm to learn behaviors that improve over the potential suboptimal human expert. We also provide a unified framework to analyze our RL method and DAgger; for which we present the asymptotic analysis of the suboptimal gap for both methods as well as the non-asymptotic sample complexity bound of our method. We then evaluate our method on challenging high-dimensional continuous control simulation benchmarks as well as real-world robotic vision-based manipulation tasks. The results show that it strongly outperforms DAgger-like approaches across the different tasks, especially when the intervening experts are suboptimal. Additional ablations also empirically verify the proposed theoretical justification that the performance of our method is associated with the choice of intervention model and suboptimality of the expert.
 </p></div>
 
 <br>
@@ -256,19 +256,20 @@
 </center>
 
 <ul>
-  <li>Run online reinforcement learning for a given task</li>
-  <li>Provide intervention feedback when the policy performs undesirable actions</li>
-  <li>Repeatedly follow the previous two steps until the policy performs the desired behavior</li>
+  <li>Provide human intervention feedback when the policy performs suboptimally</li>
+  <li>Run reinforcement learning with intervention feedback as reward signals</li>
 </ul>
+
+<div wdith="40%">
+<img src="rlif_animation.gif">
+</div>
 
 
 
   <!-- <div class="animation" wdith="50%">
   <img src="rlif_animation.gif">
 </div> -->
-<div wdith="40%">
-<img src="rlif_animation.gif">
-</div>
+
 <hr>
 
 
@@ -291,7 +292,7 @@
             </h2>
         </center>
 
-        <center>
+        <!-- <center>
             <u><h3>Description
             </h3></u>
         </center>
@@ -304,12 +305,12 @@
           <li>Continue training until the policy converges to a desired behavior</li>
         </ul>
 
-        <br>
+        <br> -->
 
-        <center>
+        <!-- <center>
             <u><h3>Pseudocode
             </h3></u>
-        </center>
+        </center> -->
 
         <div class="code" wdith="40%">
         <img src="pseudocode.png">
